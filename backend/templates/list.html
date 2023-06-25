@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask App</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <h1>Email Collection</h1>
+    <a href="/create">Create New Email</a>
+    Logged in as 
+    {{ data["username"] }}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Subject</th>
+          <th>Sender</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for email in data["emails"] %}
+        <tr>
+          <td>{{ email.id }}</td>
+          <td>{{ email.subject }}</td>
+          <td>{{ email.sender }}</td>
+          <td>
+            <a href="/edit/{{ email.id }}">Edit</a>
+            <a href="/delete/{{ email.id }}">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

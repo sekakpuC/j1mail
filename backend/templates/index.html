@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask App</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <h1>Email Collection</h1>
+    <a href="/create">Create New Email</a>
+    Welcome to j1mail
+  </body>
+</html>
